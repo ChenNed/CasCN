@@ -1,0 +1,2 @@
+# CascadeGCN
+information cascades
