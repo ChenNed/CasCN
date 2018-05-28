@@ -1,2 +1,2 @@
-# CascadeGCN
-information cascades
+# CasCN
+information cascades size prediction
