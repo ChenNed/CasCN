@@ -5,7 +5,7 @@ This is a TensorFlow implementation of Recurrent Cascades Convolution for the ta
 - `model/` contains the implementation of the CasCN;
 - `preprocessing/` contains preprocessing code：
     * split the data to train set, validation set and test set (`utils.py`);
-    * trainsform the datasets to the format of ".pkl" (`.py`)
+    * trainsform the datasets to the format of ".pkl" (`preprocess_graph_signal.py`)
     * (`config.py`) you can configure parameters and filepath in this file
     .
 # Datatset
@@ -19,10 +19,12 @@ command:
 
     cd preprocessing
     python utils.py
-    python 
+    python preprocess_graph_signal.py
  
-3.train Model
+2.train Model
 command:
 
     cd model
-    python run_sparse.py
+    python run_graph_sequence.py
+# Notice
+ If you want to do the experiment with ciatation dataset - "HEP-PE", you should first transform the format of ciatation dataset as the same as Weibo dataset. (the format of Weibo dataset you can reference [here](https://github.com/CaoQi92/DeepHawkes))
