@@ -27,4 +27,4 @@ command:
     cd model
     python run_graph_sequence.py
 # Notice
- If you want to do the experiment with ciatation dataset - "HEP-PE", you should first transform the format of ciatation dataset as the same as Weibo dataset. (the format of Weibo dataset you can reference [here](https://github.com/CaoQi92/DeepHawkes))
+ If you want to do the experiment with citation dataset - "HEP-PE", you should first transform the format of citation dataset as the same as Weibo dataset. (the format of Weibo dataset you can reference [here](https://github.com/CaoQi92/DeepHawkes))
