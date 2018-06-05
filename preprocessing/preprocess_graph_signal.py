@@ -2,7 +2,7 @@ import numpy as np
 import six.moves.cPickle as pickle
 from model import config
 import networkx as nx
-from deep_learning import dcrnn_utils
+from preprocessing import caslaplacian
 import scipy.sparse
 import gc
 LABEL_NUM = 0
@@ -124,7 +124,7 @@ def write_XYSIZE_data(graphs,labels,sizes,LEN_SEQUENCE,NUM_SEQUENCE,index,max_nu
                 temp_adj = scipy.sparse.coo_matrix(temp_adj,dtype=np.float32)
             temp.append(temp_adj)
         #caculate laplacian
-        L = dcrnn_utils.calculate_scaled_laplacian_dir(nx_G, lambda_max=None)
+        L = caslaplacian.calculate_scaled_laplacian_dir(nx_G, lambda_max=None)
         M, M = L.shape
         M = int(M)
         L = L.todense()
