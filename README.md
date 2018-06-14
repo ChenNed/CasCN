@@ -10,7 +10,7 @@ This is a TensorFlow implementation of Recurrent Cascades Convolution for the ta
     .
 # Datatset
 The datasets we used in our paper are Sina Weibo and HEP-PH. For the Sina Weibo dataset, you can download [here](https://github.com/CaoQi92/DeepHawkes) and the HEP-PH dataset is avilable [here](http://snap.stanford.edu/data/cit-HepPh.html).
-Also, we provide a pre-processed Weibo dataset (T=3 hours) [here](链接: https://pan.baidu.com/s/1_s3FvbEpj2piWcRqLqpb5A , 密码: a7xu)
+Also, we provide a pre-processed Weibo dataset (T=3 hours) [here](https://pan.baidu.com/s/1_s3FvbEpj2piWcRqLqpb5A) and the file password is: (`a7xu`)
 
 Steps to run CasCN
 ----------------------------------- 
