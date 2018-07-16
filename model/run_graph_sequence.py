@@ -83,11 +83,11 @@ def get_batch(x, L, y, sz, time, n_time_interval, step, batch_size, num_step):
 
 
 version = config.version
-x_train, L, y_train, sz_train, time_train, vocabulary_size = pickle.load(
+id_train, x_train, L, y_train, sz_train, time_train, vocabulary_size = pickle.load(
     open(cf.train_pkl, 'rb'))
-x_test, L_test, y_test, sz_test, time_test, _ = pickle.load(
+id_test, x_test, L_test, y_test, sz_test, time_test, _ = pickle.load(
     open(cf.test_pkl, 'rb'))
-x_val, L_val, y_val, sz_val, time_val, _ = pickle.load(open(cf.val_pkl, 'rb'))
+id_val, x_val, L_val, y_val, sz_val, time_val, _ = pickle.load(open(cf.val_pkl, 'rb'))
 
 training_iters = config.training_iters
 batch_size = config.batch_size
