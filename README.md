@@ -1,5 +1,5 @@
 # CasCN
-This is a TensorFlow implementation of Recurrent Cascades Convolution for the task of information cascades prediction, And the paper "Information Diffusion Prediction via Recurrent Cascades Convolution" will be avilable to download at the internet soon.
+This is a TensorFlow implementation of Recurrent Cascades Convolution for the task of information cascades prediction, And the paper "Information Diffusion Prediction via Recurrent Cascades Convolution" (Accepted by ICDE 2019) will be avilable to download at the internet soon.
 # Overview
 - `data/` put the download dataset here;
 - `model/` contains the implementation of the CasCN;
