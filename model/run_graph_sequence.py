@@ -2,7 +2,6 @@ import numpy as np
 import math
 import tensorflow as tf
 from model.model_sparse_graph_signal import Model
-# from deep_learning.model_gcn import Model
 import six.moves.cPickle as pickle
 
 tf.set_random_seed(0)
@@ -36,10 +35,10 @@ tf.flags.DEFINE_integer("n_hidden_dense2", 16, "dense2 size.")
 tf.flags.DEFINE_string("version", "v1", "data version.")
 tf.flags.DEFINE_integer("max_grad_norm", 5, "gradient clip.")
 tf.flags.DEFINE_float("stddev", 0.01, "initialization stddev.")
-tf.flags.DEFINE_float("feat_in", 100, "num of feature in")
-tf.flags.DEFINE_float("feat_out", 50, "num of feature out")
-tf.flags.DEFINE_float("lmax", 2, "max L")
-tf.flags.DEFINE_float("num_nodes", 100, "number of max nodes in cascade")
+tf.flags.DEFINE_integer("feat_in", 100, "num of feature in")
+tf.flags.DEFINE_integer("feat_out", 50, "num of feature out")
+tf.flags.DEFINE_integer("lmax", 2, "max L")
+tf.flags.DEFINE_integer("num_nodes", 100, "number of max nodes in cascade")
 config = tf.flags.FLAGS
 
 print("l2", config.l2)
