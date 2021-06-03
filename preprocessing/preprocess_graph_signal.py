@@ -84,7 +84,7 @@ def get_nodes(graph):
                 j = j+1
     return nodes
 
-def write_XYSIZE_data(graphs,labels,sizes,LEN_SEQUENCE,NUM_SEQUENCE,index,max_num, filename):
+def write_XYSIZE_data(graphs,labels,sizes,NUM_SEQUENCE,index,max_num, filename):
     #get the x,y,and size  data
     id_data = []
     x_data = []
@@ -187,15 +187,15 @@ if __name__ == "__main__":
     cascade_val = config.cascade_val
 
     ### get labels ###
-    labels_train, sizes_train = read_labelANDsize(config.cascade_train)  # 标签以及观测到的长度
+    labels_train, sizes_train = read_labelANDsize(config.cascade_train)  
     labels_val, sizes_val = read_labelANDsize(config.cascade_val)
     labels_test, sizes_test = read_labelANDsize(config.cascade_test)
-    NUM_SEQUENCE = max(get_maxsize(sizes_train),get_maxsize(sizes_val),get_maxsize(sizes_test))# 观测到的最大长度
+    NUM_SEQUENCE = max(get_maxsize(sizes_train),get_maxsize(sizes_val),get_maxsize(sizes_test))
 
-    LEN_SEQUENCE_train = get_max_length(graphs_train) #最大步长
-    LEN_SEQUENCE_val = get_max_length(graphs_val)
-    LEN_SEQUENCE_test = get_max_length(graphs_test)
-    LEN_SEQUENCE = max(LEN_SEQUENCE_train,LEN_SEQUENCE_val,LEN_SEQUENCE_test)
+    #LEN_SEQUENCE_train = get_max_length(graphs_train) 
+    #LEN_SEQUENCE_val = get_max_length(graphs_val)
+    #LEN_SEQUENCE_test = get_max_length(graphs_test)
+    #LEN_SEQUENCE = max(LEN_SEQUENCE_train,LEN_SEQUENCE_val,LEN_SEQUENCE_test)
 
     max_num_train = get_max_node_num(graphs_train)
     max_num_test = get_max_node_num(graphs_test)
@@ -212,10 +212,10 @@ if __name__ == "__main__":
     index = IndexDict(original_ids)
 
     print("create train")
-    write_XYSIZE_data(graphs_train, labels_train,sizes_train,LEN_SEQUENCE,NUM_SEQUENCE,index,max_num, config.train_pkl)
+    write_XYSIZE_data(graphs_train, labels_train,sizes_train,NUM_SEQUENCE,index,max_num, config.train_pkl)
     print("create val an test")
-    write_XYSIZE_data(graphs_val, labels_val, sizes_val,LEN_SEQUENCE,NUM_SEQUENCE,index,max_num, config.val_pkl)
-    write_XYSIZE_data(graphs_test, labels_test, sizes_test,LEN_SEQUENCE,NUM_SEQUENCE,index,max_num,config.test_pkl)
-    pickle.dump((len(original_ids),NUM_SEQUENCE,LEN_SEQUENCE), open(config.information,'wb'))
+    write_XYSIZE_data(graphs_val, labels_val, sizes_val,NUM_SEQUENCE,index,max_num, config.val_pkl)
+    write_XYSIZE_data(graphs_test, labels_test, sizes_test,NUM_SEQUENCE,index,max_num,config.test_pkl)
+    #pickle.dump((len(original_ids),NUM_SEQUENCE,LEN_SEQUENCE), open(config.information,'wb'))
     print("Finish!!!")
 
