@@ -272,7 +272,7 @@ if __name__ =="__main__":
 
     print("generate cascade new!!!")
     gen_cascade(observation_time, pre_times, config.cascades, config.cascade_train,
-                  config.cascade_val, config.cascade_val,
+                  config.cascade_val, config.cascade_test,
                   config.shortestpath_train, config.shortestpath_val,
                   config.shortestpath_test,
                   cascades_type, discard_cascade_id)
