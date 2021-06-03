@@ -225,7 +225,6 @@ class Model(object):
         self.feat_in = config.feat_in  # number of feature
         self.feat_out = config.feat_out  # number of output feature
         self.num_nodes = config.num_nodes  # each sampel has num_nodes
-        ##Need to import laplacian, lmax
         self.lmax = config.lmax
         self.sess = sess
         if config.activation == "tanh":
@@ -266,7 +265,7 @@ class Model(object):
 
         opt1 = tf.train.AdamOptimizer(learning_rate=self.learning_rate)
         grads = tf.gradients(cost, var_list)
-        grads_c = [tf.clip_by_norm(grad, self.max_grad_norm) for grad in grads]  # 防止梯度爆炸
+        grads_c = [tf.clip_by_norm(grad, self.max_grad_norm) for grad in grads]  
 
         train_op = opt1.apply_gradients(zip(grads_c, var_list), global_step=self.model_step, name='train_op')
 
