@@ -10,10 +10,7 @@ from model import config as cf
 
 # DATA_PATH = "data"
 
-n_nodes, n_sequences, _ = pickle.load(open(cf.information, 'rb'))
 n_steps = 100
-print("dataset information: ", n_nodes, n_sequences, n_steps)
-tf.flags.DEFINE_integer("n_sequences", n_sequences, "num of sequences.")
 tf.flags.DEFINE_integer("n_steps", n_steps, "num of step.")
 tf.flags.DEFINE_integer("time_interval", cf.time_interval, "the time interval")
 tf.flags.DEFINE_integer("n_time_interval", cf.n_time_interval, "the number of  time interval")
@@ -23,7 +20,6 @@ tf.flags.DEFINE_integer("num_kernel", 2, "chebyshev .")
 tf.flags.DEFINE_float("learning_rate", 0.005, "learning_rate.")
 tf.flags.DEFINE_integer("batch_size", 32, "batch size.")
 tf.flags.DEFINE_integer("num_hidden", 32, "hidden rnn size.")
-tf.flags.DEFINE_integer("use_curriculum_learning", None, "use_curriculum_learning.")
 tf.flags.DEFINE_float("l1", 5e-5, "l1.")
 tf.flags.DEFINE_float("l2", 1e-3, "l2.")
 tf.flags.DEFINE_float("l1l2", 1.0, "l1l2.")
@@ -127,8 +123,7 @@ while step * batch_size < training_iters:
         model.get_error(batch_x, batch_L, batch_y, batch_time_interval,
                         batch_rnn_index))
     if step % display_step == 0:
-        # Calculate batch loss
-        print(time_decay)
+        #print(time_decay)
         val_loss = []
         for val_step in range(int(len(y_val) / batch_size)):
             val_x, val_L, val_y, val_time, val_rnn_index = get_batch(
