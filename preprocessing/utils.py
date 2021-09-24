@@ -114,6 +114,12 @@ def discard_cascade(observation_time,pre_times,filename):
                     observation_path.append(",".join(nodes) + ":" + str(time_now))
                     for i in range(1, len(nodes)):
                         edges.add(nodes[i - 1] + ":" + nodes[i] + ":1")
+                        
+            if len(observation_path)>100:
+                    discard_cascade_id[cascadeID] = 1
+                    continue
+                else:
+                    discard_cascade_id[cascadeID]=0
             nx_Cass = nx.DiGraph()
             for i in edges:
                 part = i.split(":")
@@ -128,11 +134,7 @@ def discard_cascade(observation_time,pre_times,filename):
                 s = sys.exc_info()
             else:
                 num = nx_Cass.number_of_nodes()
-                if num>100:
-                    if cascadeID not in discard_cascade_id:
-                        discard_cascade_id[cascadeID] = 1
-                else:
-                    discard_cascade_id[cascadeID]=0
+                
 
     return discard_cascade_id
 
