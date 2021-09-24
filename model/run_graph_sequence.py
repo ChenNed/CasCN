@@ -96,7 +96,7 @@ np.set_printoptions(precision=2)
 sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
 start = time.time()
 is_training = False
-model = Model(config, n_nodes, sess)
+model = Model(config, config.num_nodes, sess)
 sess.graph.finalize()
 step = 0
 best_val_loss = 1000
